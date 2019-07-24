@@ -1,0 +1,55 @@
+{
+  "name": "snack-build",
+  "version": "0.1",
+  "description": "The Expo Snack Build SDK",
+  "main": "dist/SnackBuild.js",
+  "module": "esm/SnackBuild.js",
+  "repository": "expo/snack-build",
+  "files": [
+    "dist",
+    "esm"
+  ],
+  "scripts": {
+    "start": "yarn watch",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "prebuild": "gulp clean",
+    "prepare": "yarn build",
+    "watch": "gulp watch",
+    "test": "cross-env NODE_ENV=test jest --config jest/test-config.json --coverage"
+  },
+  "author": "support@getexponent.com",
+  "license": "MIT",
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "graphql-request": "^1.8.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.0",
+    "babel-jest": "^18.0.0",
+    "babel-plugin-dynamic-import-node": "^2.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "cross-env": "^3.1.3",
+    "del": "^3.0.0",
+    "eslint": "^5.4.0",
+    "eslint-config-exponent": "^5.1.3",
+    "eslint-config-universe": "^1.0.7",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-flowtype": "^2.25.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-react": "^7.1.0",
+    "fetch-mock": "^5.11.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-changed": "^1.3.1",
+    "gulp-cli": "^1.2.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-shell": "^0.5.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "jest": "^18.1.0",
+    "prettier": "^1.14.2"
+  }
+}
