@@ -72,7 +72,7 @@ function constructUser(user, authorizationToken, sessionSecret) {
 
 export async function buildAsync(manifest, opts) {
   const url = `${expoApiUrl}/--/api/build`;
-  const { sdkVersion, user, authorizationToken, sessionSecret, ...options } = opts;
+  const { user, authorizationToken, sessionSecret, ...options } = opts;
   const fullUser = constructUser(user, authorizationToken, sessionSecret);
   const payload = {
     manifest,
