@@ -2,8 +2,8 @@
 
 import { GraphQLClient } from 'graphql-request';
 
-const expoApiUrl = 'https://expo.io';
-const defaultSDKVersion = '33.0.0';
+const DEFAULT_API_URL = 'https://expo.io';
+const DEFAULT_SDK_VERSION = '34.0.0';
 
 /**
  * Builds an apk from the snack and returns a url to download the apk.
@@ -12,12 +12,13 @@ const defaultSDKVersion = '33.0.0';
  * @function
  */
 export async function getApkUrlAsync(appJson, options = {}) {
+  const { expoApiUrl = DEFAULT_API_URL } = options;
   const manifest = appJson.expo;
   const { id: buildId } = await buildAsync(manifest, {
     platform: 'android',
     mode: 'create',
     isSnack: true,
-    sdkVersion: defaultSDKVersion,
+    sdkVersion: DEFAULT_SDK_VERSION,
     ...options,
   });
 
@@ -71,8 +72,8 @@ function constructUser(user, authorizationToken, sessionSecret) {
 }
 
 export async function buildAsync(manifest, opts) {
+  const { user, authorizationToken, sessionSecret, expoApiUrl = DEFAULT_API_URL, ...options } = opts;
   const url = `${expoApiUrl}/--/api/build`;
-  const { user, authorizationToken, sessionSecret, ...options } = opts;
   const fullUser = constructUser(user, authorizationToken, sessionSecret);
   const payload = {
     manifest,
@@ -103,8 +104,8 @@ export async function buildAsync(manifest, opts) {
 }
 
 export async function cancelBuild(options, buildId) {
+  const { user, authorizationToken, sessionSecret, expoApiUrl = DEFAULT_API_URL } = options;
   const url = `${expoApiUrl}/--/graphql`;
-  const { user, authorizationToken, sessionSecret } = options;
   const fullUser = constructUser(user, authorizationToken, sessionSecret);
   const graphQLClient = new GraphQLClient(url, {
     headers: {
