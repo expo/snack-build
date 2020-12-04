@@ -3,7 +3,7 @@
 import { GraphQLClient } from 'graphql-request';
 
 const DEFAULT_API_URL = 'https://expo.io';
-const DEFAULT_SDK_VERSION = '34.0.0';
+const DEFAULT_SDK_VERSION = '39.0.0';
 
 /**
  * Builds an apk from the snack and returns a url to download the apk.
