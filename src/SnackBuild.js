@@ -72,11 +72,15 @@ function constructUser(user, authorizationToken, sessionSecret) {
 }
 
 export async function buildAsync(manifest, opts) {
-  const { user, authorizationToken, sessionSecret, expoApiUrl = DEFAULT_API_URL, ...options } = opts;
-  const url = `${expoApiUrl}/--/api/build`;
+  const { mode, user, authorizationToken, sessionSecret, expoApiUrl = DEFAULT_API_URL, sdkVersion, ...options } = opts;
+  const url = `${expoApiUrl}/--/api/v2/build/${mode === 'create' ? 'start' : mode}`;
+
   const fullUser = constructUser(user, authorizationToken, sessionSecret);
   const payload = {
-    manifest,
+    manifest: sdkVersion ? {
+      ...manifest,
+      sdkVersion,
+    } : manifest,
     options,
   };
 
