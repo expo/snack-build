@@ -15,7 +15,8 @@
     "prebuild": "gulp clean",
     "prepare": "yarn build",
     "watch": "gulp watch",
-    "test": "yarn build && node ./scripts/test.js"
+    "test": "yarn build && node ./scripts/test.js",
+    "lint": "eslint ./src"
   },
   "author": "support@getexponent.com",
   "license": "MIT",
