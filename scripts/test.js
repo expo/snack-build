@@ -3,11 +3,11 @@ const { buildAsync } = require("../dist/SnackBuild");
 const sdkVersion = "39.0.0";
 const manifest = {
   name: "snack-build-test",
-  slug: "amused-edamame",
+  slug: "FILL-IN-SLUG-HERE",
   sdkVersion,
 };
 
-const sessionSecret = `{"id":"4dbe319e-a96a-457b-b04c-d82f0275048f","version":1,"expires_at":1893456000000}`;
+const sessionSecret = `FILL-IN-SESSIONSECRET-HERE`;
 
 async function main() {
   console.log("Building...");
