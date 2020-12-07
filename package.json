@@ -1,6 +1,6 @@
 {
   "name": "snack-build",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "The Expo Snack Build SDK",
   "main": "dist/SnackBuild.js",
   "module": "esm/SnackBuild.js",
